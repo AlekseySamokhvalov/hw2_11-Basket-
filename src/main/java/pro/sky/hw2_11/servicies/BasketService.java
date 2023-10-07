@@ -1,12 +1,14 @@
-package servicies;
+package pro.sky.hw2_11.servicies;
 
-import model.Basket;
+import org.springframework.web.context.annotation.SessionScope;
+import pro.sky.hw2_11.model.Basket;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
 
 @Service
+@SessionScope
 public class BasketService {
 
     private final Basket basket;
