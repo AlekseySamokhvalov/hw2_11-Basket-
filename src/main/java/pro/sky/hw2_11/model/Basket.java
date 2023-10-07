@@ -1,4 +1,4 @@
-package model;
+package pro.sky.hw2_11.model;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.SessionScope;

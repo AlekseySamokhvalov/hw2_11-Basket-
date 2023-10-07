@@ -1,18 +1,19 @@
-package controllers;
+package pro.sky.hw2_11.controllers;
 
-import servicies.BasketService;
-
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
+import pro.sky.hw2_11.servicies.BasketService;
 
 import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/store/order")
+@RequestMapping("/order")
 public class BasketController {
+    @ExceptionHandler({MethodArgumentTypeMismatchException.class, NumberFormatException.class})
+    public String handleException(MethodArgumentTypeMismatchException e) {
+        return "Не тот формат ввода";
+    }
 
     private final BasketService basketService;
 
@@ -29,4 +30,5 @@ public class BasketController {
     public Map<Integer, Integer> get() {
         return basketService.get();
     }
+
 }
